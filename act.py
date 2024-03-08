@@ -1,5 +1,6 @@
 import datetime
 from docx import Document
+from docx2pdf import convert
 from python_docx_replace import docx_replace
 
 
@@ -31,6 +32,7 @@ def main():
     doc = Document(template_path)
     docx_replace(doc, **properties)
     doc.save("result.docx")
+    convert("result.docx", "result.pdf")
 
 
 if __name__ == "__main__":
