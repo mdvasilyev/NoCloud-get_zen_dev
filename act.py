@@ -1,13 +1,13 @@
+import datetime
 from docx import Document
 from python_docx_replace import docx_replace
-import datetime
 
 
 def main():
     template_path: str = "Act-template.docx"
     properties: dict = {
-        "TODAY-RU": datetime.date.today().strftime("<<%d>> %b %Y г."),
-        "TODAY-EN": datetime.date.today().strftime("``%d'' %B %Y"),
+        "TODAY-RU": datetime.date.today().strftime("«%d» %b %Y г."),
+        "TODAY-EN": datetime.date.today().strftime("“%d” %B %Y"),
         "PERIOD-START": "01.02.2024",
         "PERIOD-END": "28.02.2024"
     }
