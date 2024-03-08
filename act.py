@@ -5,9 +5,26 @@ from python_docx_replace import docx_replace
 
 def main():
     template_path: str = "Act-template.docx"
+    monthsConvert = {
+        "January": "января",
+        "February": "февраля",
+        "March": "марта",
+        "April": "апреля",
+        "May": "мая",
+        "June": "июня",
+        "July": "июля",
+        "August": "августа",
+        "September": "сентября",
+        "October": "октября",
+        "November": "ноября",
+        "December": "декабря"
+    }
+    today = datetime.date.today()
+    monthEn = today.strftime("%B")
+    monthRu = monthsConvert.get(monthEn)
     properties: dict = {
-        "TODAY-RU": datetime.date.today().strftime("«%d» %b %Y г."),
-        "TODAY-EN": datetime.date.today().strftime("“%d” %B %Y"),
+        "TODAY-RU": today.strftime(f"«%d» {monthRu} %Y г."),
+        "TODAY-EN": today.strftime("“%d” %B %Y"),
         "PERIOD-START": "01.02.2024",
         "PERIOD-END": "28.02.2024"
     }
